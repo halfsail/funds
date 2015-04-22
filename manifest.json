@@ -1,0 +1,15 @@
+{
+    "name": "funds2.kevinfeyder",
+    "description": "description of funds2",
+    "architecture": "all",
+    "title": "funds2",
+    "hooks": {
+        "funds": {
+            "apparmor": "funds.apparmor",
+            "desktop": "funds.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Kevin Feyder <kevinfeyder@yahoo.com>",
+    "framework": "ubuntu-sdk-14.10"
+}

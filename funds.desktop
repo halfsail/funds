@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=funds
+Exec=qmlscene $@ Main.qml
+Icon=funds.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
