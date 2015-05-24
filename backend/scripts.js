@@ -1,16 +1,28 @@
-function daysInMonth(payday/*month,year*/) {
-    var d = new Date();
-    var y = d.getYear();
-    var day = d.getDate();
-    var n = d.getMonth() + 1;
-    console.log("day " + day)
-    if(day < payday){
-        return day - payday;
-    } else {
-        return Math.abs(new Date(y, n, 0).getDate() - day) + payday;
+function daysInMonth(payday) {
+    //Set 1 day in milliseconds
+    var one_day=1000*60*60*24
+    //set today date
+    var today = new Date()
+    //sets saved date
+    var reset=new Date(today.getFullYear(),today.getMonth(), payday) //Month is 0-11 in JavaScript
+    if (today.getDay() < payday ){ //if day has already passed
+        reset.setMonth(today.getMonth()+1) //calculate next month
+        return(  Math.abs(Math.ceil((today.getTime()-reset.getTime())/(one_day)))  )
+    } else{
+    //Calculate difference btw the two dates, and convert to days
+        return(  Math.abs(Math.ceil((reset.getTime()-today.getTime())/(one_day)))  )
     }
-
 }
+
+function day(){
+    var day = new Date().getDate();
+    //console.log("Js day = " + day);
+    return day;
+}
+
+
+
+
 function setupMonth(){
     var d = new Date();
     var y = d.getYear();
@@ -22,11 +34,6 @@ function setupDay(budget){
     var days = setupMonth();
     return (budget / days);
 }
-/*function setupWeek(budget){
-    var days = setupMonth()//setupDay(budget);
-    console.log("weeks " + days/7)
-    return (budget/ (days/7));
-}*/
 
 function setupWeeks(budget)
 {
@@ -120,16 +127,3 @@ function expenseMath(index, amount){
         return + amount
     }
 }
-
-/*function lvl(unit){
-    if(unit === 0){
-    //week
-    return 22
-    } else if(unit === 1){
-    //today
-    return 15
-    } else {
-    //month
-    return 27
-    }
-}*/

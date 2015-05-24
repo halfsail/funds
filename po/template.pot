@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 14:03-0700\n"
+"POT-Creation-Date: 2015-05-24 11:10-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,20 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Main.qml:63
-msgid "Funds"
-msgstr ""
-
-#: components/ExpenseComponent.qml:57
-msgid "Expense"
-msgstr ""
-
-#: components/ExpenseComponent.qml:57
-msgid "Income"
-msgstr ""
-
-#: components/FavComponent.qml:105
+#: components/FavComponent.qml:29
 msgid "Save"
 msgstr ""
 
-#: components/FavComponent.qml:114
+#: components/FavComponent.qml:38
 msgid "Cancel"
+msgstr ""
+
+#: components/ExpenseComponent.qml:66
+msgid "Expense"
+msgstr ""
+
+#: components/ExpenseComponent.qml:66
+msgid "Income"
 msgstr ""
 
 #: components/StartupComponent.qml:115
@@ -43,4 +39,12 @@ msgstr ""
 
 #: components/StartupComponent.qml:115
 msgid "Forget About Extra"
+msgstr ""
+
+#: Main.qml:162
+msgid "Funds"
+msgstr ""
+
+#: Main.qml:165 Main.qml:168
+msgid "Details"
 msgstr ""

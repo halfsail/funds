@@ -3,34 +3,11 @@ import Ubuntu.Components 1.1
 import U1db 1.0 as U1db
 import "../backend/scripts.js" as Logic
 import Ubuntu.Components.ListItems 0.1 as ListItem
+import Ubuntu.Components.Popups 0.1
 
 Page{
     id:add
     title: "Settings"
-    /*head.backAction: Action {
-        iconName: "close"
-        onTriggered: stack.pop(home);
-    }
-    head.actions: Action {
-        id:save
-        iconName: "ok"
-        onTriggered:{
-
-            if(amount.text === ""){
-                //do nothing
-                amountLabel.color = "#f55443"
-                amountLabel.text = "Expense Amount    (invalid amount)"
-            } else if(type.selectedIndex === 0) {
-                    userCircle.contents = {"week": userCircle.contents.week - parseInt(amount.text),
-                    "today": userCircle.contents.today - parseInt(amount.text), "month": userCircle.contents.month - parseInt(amount.text), "payday":userCircle.payday};
-                    stack.pop(home);
-            } else {
-                userCircle.contents = {"week": userCircle.contents.week + parseInt(amount.text),
-                    "today": userCircle.contents.today + parseInt(amount.text), "month": userCircle.contents.month + parseInt(amount.text), "payday":userCircle.payday};
-                    stack.pop(home);
-            }
-        }
-    }*/
     visible: false
     Flickable{
         height: parent.height
@@ -44,31 +21,36 @@ Page{
             }
             spacing: units.gu(1)
             ListItem.Standard{
-                text:"Change Budget"
+                text:"Change Budget Infomation"
                 progression: true
                 onClicked: {
-                    stack.pop()
-                    stack.push(start)
+                    PopupUtils.open((dialog))
                 }
             }
-            ListItem.Standard{
-                text:"Change Reset Date"
-                progression: true
-                onClicked: {
-                    stack.pop()
-                    stack.push(start)
-                }
+            Component{
+                id:dialog
+            Dialog {
+             id: dialogue
+             title: "Change Infomation"
+             text: "This will reset your current progress are you sure?"
+             Button {
+                 text: "Continue"
+                 color:"#235b66"
+                 onClicked:
+                 {
+                     stack.pop()
+                     stack.push(start)
+                     PopupUtils.close(dialogue)
+                 }
+             }
+             Button {
+                 text: "Cancel"
+                 onClicked: PopupUtils.close(dialogue)
+             }
             }
-            ListItem.Standard{
-                text:"Factory Reset"
-                progression: true
-                onClicked: {
-                    stack.pop()
-                    stack.push(start)
-                }
             }
-
             CatlistComponent{}
         }
     }
+
 }

@@ -5,4 +5,7 @@ Icon=funds.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Image=sirsplashy.png
+X-Ubuntu-Splash-Color=#FFFFFF
+
 

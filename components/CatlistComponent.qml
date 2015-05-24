@@ -4,13 +4,15 @@ import U1db 1.0 as U1db
 import Ubuntu.Components.ListItems 0.1 as ListItem
 import Ubuntu.Components.Popups 0.1
 
+//add to budget catorgorie Component
+
 Item{
     width:parent.width
     height:units.gu(25)
     Column{
     width:parent.width
     height:parent.height
-    spacing:units.gu(2)
+    spacing:units.gu(3)
 
         ListItem.Base{
             width:parent.width
@@ -34,8 +36,6 @@ Item{
                 }
             }
         }
-
-
         Item{
             height:units.gu(40)
             width:parent.width
@@ -44,7 +44,7 @@ Item{
                 width:parent.width
                 ListView {
                     id:list
-                    model: userCator.contents.cat.reverse()
+                    model: userCator.contents.cat
                     width:parent.width
                     height:units.gu(40)
                     delegate: ListItem.Standard {
@@ -61,6 +61,7 @@ Item{
                                 name: "delete"
                                 width:units.gu(3)
                                 color:"#f55443"
+                                visible: model.index === 0 ? true : true;
                                 height:width
                                 anchors{
                                     verticalCenter: parent.verticalCenter
@@ -68,8 +69,7 @@ Item{
                                 MouseArea{
                                     anchors.fill:parent;
                                     onClicked:{
-                                        serve.deleteFavorite(modelData.foodName, modelData.calorieCount)
-                                        console.log("bye")
+                                        addItem.dismissCat(model.index)
                                     }
                                 }
                             }

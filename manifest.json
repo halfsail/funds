@@ -1,15 +1,15 @@
 {
     "name": "funds2.kevinfeyder",
-    "description": "description of funds2",
+    "description": "A clean and simple budget tracker",
     "architecture": "all",
-    "title": "funds2",
+    "title": "Funds",
     "hooks": {
         "funds": {
             "apparmor": "funds.apparmor",
             "desktop": "funds.desktop"
         }
     },
-    "version": "0.1",
-    "maintainer": "Kevin Feyder <kevinfeyder@yahoo.com>",
+    "version": "0.1.2",
+    "maintainer": "Kevin Feyder <kevinfeyder@gmail.com>",
     "framework": "ubuntu-sdk-14.10"
 }

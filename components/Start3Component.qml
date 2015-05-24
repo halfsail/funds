@@ -1,13 +1,13 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
 import U1db 1.0 as U1db
+import "../backend/scripts.js" as Logic
 
 Item{
     //id:start3
     width:parent.width
     height:parent.height
-    opacity: 0;
-    visible: false
+
     Behavior on opacity { NumberAnimation { easing.type: Easing.OutBack; duration: 2600} }
     //--add cat --//
 
@@ -15,16 +15,6 @@ Item{
         id:col3
         width:parent.width
         spacing:units.gu(3)
-        Item{
-            id:add
-            function storePlayer(playerObject) {
-                var tempContents = {};
-                tempContents = userCator.contents;
-                if (tempContents.cat.indexOf(playerObject) != -1) throw "Already exists";
-                tempContents.cat.push(playerObject);
-                userCator.contents = tempContents;
-                }
-        }
         Label{
             anchors.horizontalCenter: parent.horizontalCenter
             text:"Setup Catorgorie"
@@ -67,6 +57,7 @@ CatlistComponent{}
                         color:"white"
                     }
                     MouseArea{
+
                         anchors.fill:parent
                         onClicked: {
                             start3.opacity = 0;
@@ -83,10 +74,18 @@ CatlistComponent{}
                     color:"white"
                     MouseArea{
                         anchors.fill:parent
+
                         onClicked: {
                             stack.pop()
                             stack.push(home)
-                            //change variable marker later
+                            addItem.deleteItem()
+                            addItem.clearCat()
+                            userGoal.contents = {"week":userGoal.contents.week,"today": userGoal.contents.today,
+                                "month":userGoal.contents.month,"payday": userGoal.contents.payday, "start":Logic.day()};
+                            print(userGoal.contents.start)
+                            //stack.pop(home)
+                            //home.visible = true
+
                         }
                     }
                 }// end of finish button
